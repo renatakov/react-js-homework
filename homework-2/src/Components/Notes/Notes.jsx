@@ -1,4 +1,4 @@
-import './Notes.module.css'
+import s from './Notes.module.css'
 import React from "react";
 import Note from "./Note/Note"
 const Notes = (props)=>{
@@ -27,11 +27,11 @@ const Notes = (props)=>{
             <div>
             <h1>Notes</h1>
             {allNotes}
-            <form>
+            <div className={s.notesStore1}>
                 <input ref={inputRef}  placeholder="Note title" type="text" />
                 <input ref={inputRef1} placeholder="Note text" type="text" />
-                <button onClick={createNewNote} type="submit">Submit</button>
-            </form>
+                <button onClick={createNewNote} >Submit</button>
+            </div>
         </div>
     )
 }

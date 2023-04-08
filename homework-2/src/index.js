@@ -21,12 +21,10 @@ console.log(notesStore)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const rerender = (store) => {
   root.render(
-    <React.StrictMode>
       <App 
       store = {store}
       rerender = {rerender}
       />
-    </React.StrictMode>
   );
 }
 rerender(notesStore)
