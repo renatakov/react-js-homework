@@ -1,8 +1,10 @@
+import s from './Note.module.css'
+
 const Note = (props) => {
-    // console.log(props)
+    console.log(props)   
     return (
-        <div>
-            <h2>{props.title}</h2>
+        <div className={s.noteItem}>
+            <h1>{props.title}</h1>
             <p>{props.text}</p>
             <p>{props.time}</p>
 
