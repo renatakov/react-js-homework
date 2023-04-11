@@ -3,7 +3,9 @@ import s from './Profile.module.css'
 
 class Profile extends React.Component {
 
-
+    deleteProfile = () => {
+        
+    }
     render() {
         return (
             <div className={s.profileContainer}>

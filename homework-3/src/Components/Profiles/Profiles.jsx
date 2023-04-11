@@ -26,6 +26,7 @@ class Profiles extends React.Component {
         }
     }
 
+
     getAllProfiles = () => {
         return this.state.profiles.map(profile => (
             <Profile 
@@ -38,22 +39,44 @@ class Profiles extends React.Component {
             />
         ));
     }
+    inputNameRef = React.createRef();
+    inputEmailRef = React.createRef();
+    inputPhoneRef = React.createRef();
+    inputAddressRef = React.createRef();
+    inputCityRef = React.createRef();
+    createProfile = () => {
+        this.setState({
+            profiles: [...this.state.profiles, {
+                id: this.state.profiles.length + 1,
+                name: this.inputNameRef.current.value,
+                email: this.inputEmailRef.current.value,
+                phone: this.inputPhoneRef.current.value,
+                address: this.inputAddressRef.current.value,
+                city: this.inputCityRef.current.value,
+            }],
+        });
+        this.inputNameRef.current.value = '';
+        this.inputEmailRef.current.value = '';
+        this.inputPhoneRef.current.value = '';
+        this.inputAddressRef.current.value = '';
+        this.inputCityRef.current.value = '';
+    }
 
     render() {
         return (
-            <div>
-                <h1>Profiles</h1>
+            <div className={s.profilesSection}>
+                <h1 className={s.mainTitle}>Profiles</h1>
                 <ul>
                     {this.getAllProfiles()}
                 </ul>
                 <div className={s.createProfileDiv}>
                 <h2>Create New Profile</h2>
-                <input placeholder='Write Your Name' type="text" />
-                <input placeholder='Write Your Email' type="text" />
-                <input placeholder='Write Your Phone Number' type="text" />
-                <input placeholder='Write Your Adress' type="text" />
-                <input placeholder='Write Your City' type="text" />
-                <button>Create Profile</button>
+                <input ref={this.inputNameRef} placeholder='Write Your Name' type="text" />
+                <input ref={this.inputEmailRef} placeholder='Write Your Email' type="email" />
+                <input ref={this.inputPhoneRef} placeholder='Write Your Phone Number' type="phone" />
+                <input ref={this.inputAddressRef} placeholder='Write Your Adress' type="text" />
+                <input ref={this.inputCityRef} placeholder='Write Your City' type="text" />
+                <button onClick={this.createProfile}>Create Profile</button>
                 </div>
             </div>
         );

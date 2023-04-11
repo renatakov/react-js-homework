@@ -1,3 +1,8 @@
+body{
+    font-family: "Aerial", "Helvetica";
+
+}
+
 .createProfileDiv{
     display: flex;
     width: 300px;
@@ -6,4 +11,25 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+}
+
+.createProfileDiv > input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #8e8b8b;
+}
+
+.createProfileDiv > button{
+    padding: 5px;
+    font-size: 18px;
+    background: none;
+    border: 2px solid #303030;
+    border-radius: 3px;
+}
+
+
+.mainTitle{
+    text-align: center;
+    padding-left: 40px;
+    font-size: 50px;
 }
