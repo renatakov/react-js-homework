@@ -7,7 +7,7 @@ class Profiles extends React.Component {
         this.state = {
             profiles: [
                 {
-                    id: 1,
+                    id: '1',
                     name: 'John Doe',
                     email: 'kenaa@example.com',
                     phone: '1234567890',
@@ -15,7 +15,7 @@ class Profiles extends React.Component {
                     city: 'New York',
                 },
                 {
-                    id: 2,
+                    id: '2',
                     name: 'Alex',
                     email: 'kenaa@example.com',
                     phone: '0123456789',
@@ -30,7 +30,7 @@ class Profiles extends React.Component {
     getAllProfiles = () => {
         return this.state.profiles.map(profile => (
             <Profile 
-                key={profile.id} 
+                key={`id-${profile.id}`}
                 name={profile.name} 
                 email={profile.email} 
                 phone={profile.phone}
