@@ -25,11 +25,18 @@ class Profiles extends React.Component {
             ],
         }
     }
+    deleteProfile = (id) => {
+        const filteredProfiles = this.state.profiles.filter(profile => profile.id !== id);
+        this.setState({
+            profiles: filteredProfiles,
+        });
+    }
 
 
     getAllProfiles = () => {
         return this.state.profiles.map(profile => (
-            <Profile 
+            <Profile
+                onDelete={() => this.deleteProfile(profile.id)}
                 key={`id-${profile.id}`}
                 name={profile.name} 
                 email={profile.email} 
@@ -61,6 +68,7 @@ class Profiles extends React.Component {
         this.inputAddressRef.current.value = '';
         this.inputCityRef.current.value = '';
     }
+
 
     render() {
         return (
