@@ -5,7 +5,7 @@ const Notes = (props)=>{
     const notesStore = props.store;
     const allNotes = notesStore.map((note, i)=>{
         return <Note
-        key={i} 
+        key={i}
         text={note.text} 
         title={note.title} 
         time={note.time}
@@ -16,8 +16,8 @@ const Notes = (props)=>{
 
     const createNewNote = ()=>{
             notesStore.push({
-                text: inputRef.current.value,
-                title: inputRef1.current.value,
+                text: inputRef1.current.value,
+                title: inputRef.current.value,
                 time: new Date().toLocaleString()
             })
             props.rerender(notesStore);
@@ -30,7 +30,7 @@ const Notes = (props)=>{
             <div className={s.notesStore1}>
                 <input ref={inputRef}  placeholder="Note title" type="text" />
                 <input ref={inputRef1} placeholder="Note text" type="text" />
-                <button onClick={createNewNote} >Submit</button>
+                <button onClick={createNewNote}>Submit</button>
             </div>
         </div>
     )
