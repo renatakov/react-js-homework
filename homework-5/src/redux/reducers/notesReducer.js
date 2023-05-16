@@ -1,3 +1,5 @@
+import { createStore } from 'redux';
+
 let initialState = {
     notes: [
         {
@@ -13,4 +15,8 @@ let initialState = {
     ]
 }
 
-export default initialState;
+const notesReducer = (state = initialState, action) => {
+    return state;
+}
+
+export const store = createStore(notesReducer);
