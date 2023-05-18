@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+const ADD_NOTE = "ADD_NOTE";
+const DELETE_NOTE = "DELETE_NOTE";
 
 let initialState = {
     notes: [
@@ -12,11 +13,21 @@ let initialState = {
             title: 'Note 2',
             text: 'This is second note'
         }
-    ]
+    ],
+    newNote: {
+        id: null,
+        title: null,
+        text: null
+    }
 }
 
-const notesReducer = (state = initialState, action) => {
-    return state;
-}
+export const deleteNoteAC = (idToDelete) =>({
+    type: DELETE_NOTE,
+    idToDelete
+}) 
 
-export const store = createStore(notesReducer);
+export const addNoteAC = (noteTitle, noteDescription) =>({
+    type: ADD_NOTE,
+    noteTitle,
+    noteDescription
+})
