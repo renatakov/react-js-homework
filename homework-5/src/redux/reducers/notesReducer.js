@@ -22,16 +22,73 @@ let initialState = {
     }
 }
 
+const createNote = (state) =>{
+    return{
+        ...state,
+        notes: [
+            ...state.notes,
+            {...state.newNote}
+        ],
+        newNote: {
+            id: null,
+            name: null,
+        },
+
+    }
+}
+
+const updateNote = (state, action) =>{
+    if(action.inputForm === "title"){
+        return {
+            ...state,
+            notes:[
+                ...state.notes,
+            ],
+            newNote: {
+                id: state.notes[state.notes.length - 1].id + 1,
+                title: action.inputValue,
+            }
+        }
+    }
+    if(action.inputForm === "text"){
+        return{
+            ...state,
+            notes: [
+                ...state.notes,
+            ],
+            newNote: {
+                id: state.notes[state.notes.length - 1].id + 1,
+                text: action.inputValue,
+            }
+        }
+    }
+}
+
+const deleteNote = (state, action) =>{
+    let updatedNote = state.notes.filter((note) =>{
+        if(note.id !== action.idToDelete){
+            return note;
+        }
+    })
+
+    return{
+        ...state,
+        notes: [
+            ...updatedNote
+        ]
+    }
+}
+
 export const notesReducer = (state = initialState, action)=>{
     switch(action.type){
         case ADD_NOTE: {
-            return console.log('note added')
+            return createNote(state)
         }
         case UPDATE_NOTE: {
-            return console.log('note updated')
+            return updateNote(state, action)
         }
         case DELETE_NOTE: {
-            return console.log('note deleted')
+            return deleteNote(state, action)
         }
         default:{
             return state
