@@ -31,7 +31,8 @@ const createNote = (state) =>{
         ],
         newNote: {
             id: null,
-            name: null,
+            title: null,
+        text: null
         },
 
     }
@@ -45,6 +46,7 @@ const updateNote = (state, action) =>{
                 ...state.notes,
             ],
             newNote: {
+                ...state.newNote,
                 id: state.notes[state.notes.length - 1].id + 1,
                 title: action.inputValue,
             }
@@ -57,6 +59,8 @@ const updateNote = (state, action) =>{
                 ...state.notes,
             ],
             newNote: {
+                ...state.newNote,
+
                 id: state.notes[state.notes.length - 1].id + 1,
                 text: action.inputValue,
             }

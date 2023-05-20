@@ -1,13 +1,12 @@
 import Weather from './Components/Weather/Weather';
-import Notes from './Components/Notes/Notes';
+import NotesContainer from './redux/NotesContainer';
 
-const App = (props) => {
-  console.log(props.notes)
+const App = () => {
   return (
     <div>
       <h1>Hello World!</h1>
       <Weather />
-      <Notes /> 
+      <NotesContainer /> 
     </div>
   );
 };

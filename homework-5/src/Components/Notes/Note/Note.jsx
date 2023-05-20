@@ -1,8 +1,9 @@
-const Note = () =>{
+const Note = (props) =>{
     return(
         <div className="noteContainer">
-            <h3></h3>
-            <p></p>
+            <h2>{props.title}</h2>
+            <p>{props.text}</p>
+            <button onClick={()=>{props.deleteNote(props.id)}}>Delete</button>
         </div>
     )
 }
