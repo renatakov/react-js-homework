@@ -1,0 +1,17 @@
+.btn{
+    background-color: rgb(229, 225, 225);
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.active{
+    background-color: rgb(38, 51, 203);
+    color: #ffff;
+}
+
+.default{
+    background-color: rgb(227, 227, 227);
+    color: #000;
+}

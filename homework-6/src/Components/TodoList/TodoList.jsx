@@ -1,20 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 import { createToDo, deleteToDo } from "../../redux/toDoReducer";
+import Button from "../assets/Button";
+import s from "./TodoList.module.css"
+
 const ToDoList = () =>{
     const todoList = useSelector((state) =>state.todoPage.todoList)
     const deleteBtnRef = useRef(null)
-    
     const dispatch = useDispatch()
     const getAllTodos = todoList.map(task =>{
         return(
-            <div className="task-container">
+            <div className={s.taskContainer}>
+                <input checked={task.isActive} type="checkbox" />
                 <h3>
                     {task.title}
                 </h3>
-                <p>Status: {task.status}</p>
-                {task.status === "pending" ? <button onClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}>X</button> : null}
-                
+                {task.status === "pending" ? <Button text="X" onClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}/> : null}
             </div>
         )
     })
@@ -28,11 +29,10 @@ const ToDoList = () =>{
     }
     return(
         <>
-        <h1>ToDoList</h1>
         {getAllTodos}
-        <div className="addTodoForm">
-            <input ref={inputTitleRef} placeholder="Write Task Title"/>
-            <button onClick={()=>{handleBtn()}} ref={btnRef} className="addTodo">Add Todo</button>
+        <div className={s.addTodoForm}>
+            <input className={s.addTodoInput} ref={inputTitleRef} placeholder="Write Task Title"/>
+            <Button text="Add Todo" handleClick={handleBtn} ref={btnRef} className="addTodo"/>
         </div>
         </>
     )

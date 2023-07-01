@@ -1,10 +1,12 @@
 import ToDoList from "./Components/TodoList/TodoList";
-
+import Header from "./Components/Header/Header";
+import "./App.css"
 const App = () =>{
   return(
-    <>
+    <div className="body">
+      <Header/>
     <ToDoList/>
-    </>
+    </div>
   )
 }
 

@@ -1,0 +1,21 @@
+.addTodoInput{
+    border-radius: 3px;
+    padding: 5px 20px;
+    border: 1px solid #808080;
+}
+
+.addTodoForm{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.taskContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-bottom: 2px solid #000000;
+}

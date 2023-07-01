@@ -4,12 +4,33 @@ const initialState = {
     todoList:[
         {
             id: nanoid(),
-            title: "Go shopping",
-            status: "pending"
+            title: "Learn React",
+            isActive: false,
+            status: "pending",
+            
+        },
+        {
+            id: nanoid(),
+            title: "Learn HTML & CSS",
+            status: "completed",
+            isActive: true,
+
         }
     ],
-    count: 1
+    
+    count: {
+        pending: 1,
+        completed: 1
+    },
+    filterStatus: "All",
+    filterList:[]
 }
+
+// actions
+//update input new task -> newText
+//create new task -> null
+//check task status -> id
+//check filter status -> status
 
 export const createToDo = createAction("toDo/createToDo", title =>({
     payload:{
@@ -19,7 +40,17 @@ export const createToDo = createAction("toDo/createToDo", title =>({
     }
 }))
 
-export const updateToDoStatus = 
+export const updateTodoStatus = createAction("toDo/updateTodoStatus", todoId=>({
+    payload:{
+        todoId
+    }
+}))
+
+export const filterTodosByStatus = createAction("toDo/filterTodosByStatus", todoStatus=>({
+    payload:{
+        todoStatus
+    }
+}))
 
 
 export const deleteToDo = createAction("toDo/deleteToDo", idToDelete =>({
