@@ -15,7 +15,7 @@ const ToDoList = () =>{
                 <h3>
                     {task.title}
                 </h3>
-                {task.status === "pending" ? <Button text="X" onClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}/> : null}
+                {task.status === "pending" ? <Button text="X" handleClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}/> : null}
             </div>
         )
     })
