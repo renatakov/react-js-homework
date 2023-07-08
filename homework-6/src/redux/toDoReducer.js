@@ -65,8 +65,8 @@ const toDoReducer = createReducer(initialState, builder =>{
         state.count += 1
     })
     builder.addCase(deleteToDo, (state, action)=>{
-        let filtredTodos = state.todoList.filter(todo=>todo.id !== action.payload.idToDelete)
-        state.todoList = filtredTodos
+        console.log(action)
+        state.todoList = state.todoList.filter(todo=>todo.id !== action.payload.idToDelete)
         state.count-=1
     })
 })
