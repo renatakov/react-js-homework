@@ -11,11 +11,11 @@ const ToDoList = () =>{
     const getAllTodos = todoList.map(task =>{
         return(
             <div className={s.taskContainer}>
-                <input checked={task.isActive} type="checkbox" />
+                <input checked={task.isActive === false} type="checkbox" />
                 <h3>
                     {task.title}
                 </h3>
-                {task.status === "pending" ? <Button text="X" handleClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}/> : null}
+                {task.status === "Active" ? <Button text="X" handleClick={()=>{dispatch(deleteToDo(task.id))}} ref={deleteBtnRef}/> : null}
             </div>
         )
     })

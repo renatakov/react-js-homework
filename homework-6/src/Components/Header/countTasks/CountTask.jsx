@@ -5,7 +5,7 @@ const CountTask = () => {
     return(
         <div>
             <h3>Tasks</h3>
-            <p>Active: {countInfo.pending}</p>
+            <p>Active: {countInfo.active}</p>
             <p>Completed: {countInfo.completed}</p>
         </div>
     )

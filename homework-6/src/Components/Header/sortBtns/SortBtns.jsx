@@ -1,12 +1,17 @@
 import Button from "../../assets/Button"
 import s from "./SortBtns.module.css"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+import { changeFilterAC } from "../../../redux/toDoReducer"
 
 const SortBtns = () => {
+    const dispatch = useDispatch()
+    const handleClick = (newFilter) => {
+        dispatch(changeFilterAC(newFilter))
+    }
     const statusType = useSelector(state => state.todoPage.filterStatus)
     const sortTypes = ["All", "Active", "Completed"]
     const btnsCollection = sortTypes.map(type => {
-        return <Button isActive={type === statusType} key={type} text={type}/>
+        return <Button handleClick={()=>{handleClick({type})}} isActive={type === statusType} key={type} text={type}/>
     })
     return (
         <div>

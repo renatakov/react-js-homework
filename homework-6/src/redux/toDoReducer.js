@@ -5,21 +5,21 @@ const initialState = {
         {
             id: nanoid(),
             title: "Learn React",
-            isActive: false,
-            status: "pending",
+            isActive: true,
+            status: "Active",
             
         },
         {
             id: nanoid(),
             title: "Learn HTML & CSS",
-            status: "completed",
-            isActive: true,
+            status: "Completed",
+            isActive: false,
 
         }
     ],
     
     count: {
-        pending: 1,
+        active: 1,
         completed: 1
     },
     filterStatus: "All",
@@ -35,7 +35,7 @@ const initialState = {
 export const createToDo = createAction("toDo/createToDo", title =>({
     payload:{
         id: nanoid(),
-        status: "pending",
+        status: "Active",
         title
     }
 }))
@@ -52,6 +52,9 @@ export const filterTodosByStatus = createAction("toDo/filterTodosByStatus", todo
     }
 }))
 
+export const changeFilterAC = createAction("task/change-filter", (newStatus)=>({
+    payload: newStatus
+}))
 
 export const deleteToDo = createAction("toDo/deleteToDo", idToDelete =>({
     payload:{
@@ -68,6 +71,9 @@ const toDoReducer = createReducer(initialState, builder =>{
         console.log(action)
         state.todoList = state.todoList.filter(todo=>todo.id !== action.payload.idToDelete)
         state.count-=1
+    })
+    builder.addCase(changeFilterAC, (state, action)=>{
+        state.filterStatus = action.payload
     })
 })
 
