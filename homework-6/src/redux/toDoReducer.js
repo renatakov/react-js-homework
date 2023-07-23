@@ -23,7 +23,6 @@ const initialState = {
         completed: 1
     },
     filterStatus: "All",
-    filterList:[]
 }
 
 // actions

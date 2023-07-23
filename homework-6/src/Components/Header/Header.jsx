@@ -1,11 +1,11 @@
 import CountTask from "./countTasks/CountTask"
-import SortBtns from "./sortBtns/SortBtns"
+import Filter from "./filter/filterContainer"
 import s from "./Header.module.css"
 const Header = (props) => {
     return(
         <header>
 <CountTask/>
-<SortBtns/>
+<Filter/>
         </header>
     )
     }
